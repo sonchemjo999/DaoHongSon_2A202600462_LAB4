@@ -1,0 +1,132 @@
+{
+  "session_id": "sess_1775554899469_691a33",
+  "label": "agent",
+  "model": "gpt-4o-mini",
+  "start_time": 1775554899469,
+  "total_duration_ms": 14108,
+  "total_queries": 1,
+  "total_tokens": 0,
+  "total_tool_calls": 3,
+  "events": [
+    {
+      "timestamp": "2026-04-07T16:41:39.469Z",
+      "event": "SESSION_START",
+      "data": {
+        "session_id": "sess_1775554899469_691a33",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:39.572Z",
+      "event": "AGENT_START",
+      "data": {
+        "session_id": "sess_1775554899469_691a33",
+        "query": "T?i ? H? N?i, mu?n ?i Ph? Qu?c 2 ??m, budget 5 tri?u. T? v?n gi?p!",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:41.939Z",
+      "event": "TOOL_CALL",
+      "data": {
+        "step": 1,
+        "tool_name": "search_flights",
+        "tool_args": {
+          "origin": "Hà Nội",
+          "destination": "Phú Quốc"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:42.041Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 1,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 1
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:43.211Z",
+      "event": "TOOL_CALL",
+      "data": {
+        "step": 2,
+        "tool_name": "search_hotels",
+        "tool_args": {
+          "city": "Phú Quốc",
+          "max_price_per_night": 900000
+        }
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:43.312Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 2,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 1
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:44.807Z",
+      "event": "TOOL_CALL",
+      "data": {
+        "step": 3,
+        "tool_name": "calculate_budget",
+        "tool_args": {
+          "total_budget": 5000000,
+          "expenses": "vé_máy_bay:2200000,khách_sạn:400000"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:44.889Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 3,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 1
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:53.473Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 4,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:53.576Z",
+      "event": "AGENT_RESPONSE",
+      "data": {
+        "step": 4,
+        "answer_preview": "Dạ anh/chị ơi, với ngân sách **5 triệu** đi **Phú Quốc 2 đêm** từ **Hà Nội**, em thấy mình vẫn đi được theo kiểu **tiết kiệm** nha 💙  \nVì anh/chị chưa cho ngày đi cụ thể nên em đang lấy **giá tham khả",
+        "latency_ms": 14003
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:53.577Z",
+      "event": "SESSION_END",
+      "data": {
+        "total_duration_ms": 14108,
+        "total_queries": 1,
+        "total_tokens": 0,
+        "total_tool_calls": 3
+      }
+    }
+  ]
+}

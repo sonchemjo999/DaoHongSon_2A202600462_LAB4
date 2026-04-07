@@ -1,0 +1,5 @@
+{"timestamp": "2026-04-07T16:42:01.473Z", "event": "SESSION_START", "data": {"session_id": "sess_1775554921473_22f4a9", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:42:01.574Z", "event": "AGENT_START", "data": {"session_id": "sess_1775554921473_22f4a9", "query": "Gi?i gi?p t?i b?i t?p l?p tr?nh Python v? linked list", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:42:03.459Z", "event": "LLM_METRIC", "data": {"step": 1, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 0}}
+{"timestamp": "2026-04-07T16:42:03.563Z", "event": "AGENT_RESPONSE", "data": {"step": 1, "answer_preview": "Dạ, em chỉ hỗ trợ về du lịch thôi nha! Anh/chị có muốn em tư vấn chuyến đi nào không ạ?", "latency_ms": 1986}}
+{"timestamp": "2026-04-07T16:42:03.564Z", "event": "SESSION_END", "data": {"total_duration_ms": 2091, "total_queries": 1, "total_tokens": 0, "total_tool_calls": 0}}

@@ -1,0 +1,5 @@
+{"timestamp": "2026-04-07T16:40:34.984Z", "event": "SESSION_START", "data": {"session_id": "sess_1775554834984_a5eb87", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:40:35.085Z", "event": "AGENT_START", "data": {"session_id": "sess_1775554834984_a5eb87", "query": "Xin ch?o! T?i ?ang mu?n ?i du l?ch nh?ng ch?a bi?t ?i ??u.", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:40:42.126Z", "event": "LLM_METRIC", "data": {"step": 1, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 0}}
+{"timestamp": "2026-04-07T16:40:42.229Z", "event": "AGENT_RESPONSE", "data": {"step": 1, "answer_preview": "Dạ chào anh/chị nhaaa 🌷  \nEm rất vui được đồng hành cùng anh/chị luôn á. Nếu mình chưa biết đi đâu thì em có thể gợi ý theo **ngân sách, số ngày nghỉ, điểm đi và kiểu du lịch anh/chị thích** để chọn c", "latency_ms": 7142}}
+{"timestamp": "2026-04-07T16:40:42.230Z", "event": "SESSION_END", "data": {"total_duration_ms": 7246, "total_queries": 1, "total_tokens": 0, "total_tool_calls": 0}}

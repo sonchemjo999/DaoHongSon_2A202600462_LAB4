@@ -1,0 +1,60 @@
+{
+  "session_id": "sess_1775554894368_ecb492",
+  "label": "agent",
+  "model": "gpt-4o-mini",
+  "start_time": 1775554894368,
+  "total_duration_ms": 3565,
+  "total_queries": 1,
+  "total_tokens": 0,
+  "total_tool_calls": 0,
+  "events": [
+    {
+      "timestamp": "2026-04-07T16:41:34.368Z",
+      "event": "SESSION_START",
+      "data": {
+        "session_id": "sess_1775554894368_ecb492",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:34.472Z",
+      "event": "AGENT_START",
+      "data": {
+        "session_id": "sess_1775554894368_ecb492",
+        "query": "T?m gi?p t?i chuy?n bay t? H? N?i ?i ?? N?ng",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:37.852Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 1,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:37.932Z",
+      "event": "AGENT_RESPONSE",
+      "data": {
+        "step": 1,
+        "answer_preview": "Dạ em giúp anh/chị được nha ✈️\n\nHiện em đã có:\n- Điểm đi: **Hà Nội**\n- Điểm đến: **Đà Nẵng**\n\nĐể tìm chuyến bay chính xác hơn, anh/chị cho em xin thêm **ngày bay** nữa hen.  \nVí dụ: **10/04/2026** hoặ",
+        "latency_ms": 3458
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:41:37.933Z",
+      "event": "SESSION_END",
+      "data": {
+        "total_duration_ms": 3565,
+        "total_queries": 1,
+        "total_tokens": 0,
+        "total_tool_calls": 0
+      }
+    }
+  ]
+}

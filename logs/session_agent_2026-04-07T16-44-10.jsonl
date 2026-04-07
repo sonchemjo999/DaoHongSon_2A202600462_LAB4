@@ -1,0 +1,6 @@
+{"timestamp": "2026-04-07T16:44:10.962Z", "event": "SESSION_START", "data": {"session_id": "sess_1775555050962_883dde", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:44:13.581Z", "event": "AGENT_START", "data": {"session_id": "sess_1775555050962_883dde", "query": "Tìm giúp tôi chuyến bay từ Hà Nội đi Đà Nẵng", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:44:15.452Z", "event": "TOOL_CALL", "data": {"step": 1, "tool_name": "search_flights", "tool_args": {"origin": "Hà Nội", "destination": "Đà Nẵng"}}}
+{"timestamp": "2026-04-07T16:44:15.553Z", "event": "LLM_METRIC", "data": {"step": 1, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 1}}
+{"timestamp": "2026-04-07T16:44:20.908Z", "event": "LLM_METRIC", "data": {"step": 2, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 0}}
+{"timestamp": "2026-04-07T16:44:21.009Z", "event": "AGENT_RESPONSE", "data": {"step": 2, "answer_preview": "Dạ em tìm được chuyến bay Hà Nội đi Đà Nẵng như sau nha anh/chị:\n\n✈ Chuyến bay:\n- VietJet Air | 08:30 → 09:50 | 890.000đ\n- Bamboo Airways | 11:00 → 12:20 | 1.200.000đ\n- Vietnam Airlines | 06:00 → 07:2", "latency_ms": 7426}}

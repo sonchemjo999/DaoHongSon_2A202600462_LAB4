@@ -1,0 +1,4 @@
+{"timestamp": "2026-04-07T16:01:49.751Z", "event": "SESSION_START", "data": {"session_id": "sess_1775552509750_e089ed", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:02:06.782Z", "event": "AGENT_START", "data": {"session_id": "sess_1775552509750_e089ed", "query": "bạn tôi muốn đi Phú quốc 5 ngày, chi phí 10 triệu, từ hà nội", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:02:15.303Z", "event": "LLM_METRIC", "data": {"step": 1, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 0}}
+{"timestamp": "2026-04-07T16:02:15.405Z", "event": "AGENT_RESPONSE", "data": {"step": 1, "answer_preview": "Dạ, em sẽ tư vấn cho anh một chuyến đi đến Phú Quốc 5 ngày với ngân sách 10 triệu nha. Để em tìm chuyến bay và khách sạn phù hợp, anh cho em hỏi thêm thông tin dưới đây:\n\n1. Ngày đi cụ thể (nếu anh đã", "latency_ms": 8521}}

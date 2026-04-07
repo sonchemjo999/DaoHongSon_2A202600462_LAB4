@@ -1,0 +1,4 @@
+{"timestamp": "2026-04-07T15:59:40.686Z", "event": "SESSION_START", "data": {"session_id": "sess_1775552380686_a0a64c", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T15:59:44.666Z", "event": "AGENT_START", "data": {"session_id": "sess_1775552380686_a0a64c", "query": "Chúng tôi đi nhóm 5 người. Tìm vé khứ hồi Hà Nội - Đà Nẵng và 2 phòng khách sạn (1 phòng 2 người, 1 phòng 3 người) trong 3 đêm. Tính tổng chi phí cho cả đoàn.", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T15:59:48.306Z", "event": "LLM_METRIC", "data": {"step": 1, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 0}}
+{"timestamp": "2026-04-07T15:59:48.409Z", "event": "AGENT_RESPONSE", "data": {"step": 1, "answer_preview": "Trời ơi, em cần anh cung cấp thêm thông tin về ngày đi và ngày về để em có thể tìm vé máy bay và khách sạn cho anh nha! Anh cho em biết cụ thể ngày nào không ạ?", "latency_ms": 3641}}

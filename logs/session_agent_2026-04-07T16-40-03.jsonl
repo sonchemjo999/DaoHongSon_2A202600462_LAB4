@@ -1,0 +1,2 @@
+{"timestamp": "2026-04-07T16:40:03.840Z", "event": "SESSION_START", "data": {"session_id": "sess_1775554803840_9cc9ad", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:40:03.942Z", "event": "AGENT_START", "data": {"session_id": "sess_1775554803840_9cc9ad", "query": "Xin ch?o! T?i ?ang mu?n ?i du l?ch nh?ng ch?a bi?t ?i ??u.", "model": "gpt-4o-mini"}}

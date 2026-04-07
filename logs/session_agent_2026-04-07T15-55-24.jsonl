@@ -1,0 +1,7 @@
+{"timestamp": "2026-04-07T15:55:24.442Z", "event": "SESSION_START", "data": {"session_id": "sess_1775552124442_6b8ec1", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T15:55:24.539Z", "event": "AGENT_START", "data": {"session_id": "sess_1775552124442_6b8ec1", "query": "Tìm chuyến bay Hà Nội đi Đà Nẵng ngày 10/04/2026", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T15:55:26.549Z", "event": "TOOL_CALL", "data": {"step": 1, "tool_name": "search_flights", "tool_args": {"origin": "Hà Nội", "destination": "Đà Nẵng", "travel_date": "10/04/2026"}}}
+{"timestamp": "2026-04-07T15:55:26.551Z", "event": "LLM_METRIC", "data": {"step": 1, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 1}}
+{"timestamp": "2026-04-07T15:55:34.998Z", "event": "LLM_METRIC", "data": {"step": 2, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 0}}
+{"timestamp": "2026-04-07T15:55:35.099Z", "event": "AGENT_RESPONSE", "data": {"step": 2, "answer_preview": "Dạ, đây là các chuyến bay từ Hà Nội đi Đà Nẵng vào ngày 10/04/2026 (Thứ 6) nè:\n\n1. **Vietnam Airlines** | 06:00 → 07:20 | **Giá**: 1.450.000đ | **Hạng**: economy\n2. **Vietnam Airlines** | 14:00 → 15:2", "latency_ms": 10554}}
+{"timestamp": "2026-04-07T15:55:35.099Z", "event": "SESSION_END", "data": {"total_duration_ms": 10657, "total_queries": 1, "total_tokens": 0, "total_tool_calls": 1}}

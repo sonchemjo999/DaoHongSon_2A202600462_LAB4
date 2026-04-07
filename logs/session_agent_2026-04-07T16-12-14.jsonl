@@ -1,0 +1,5 @@
+{"timestamp": "2026-04-07T16:12:14.660Z", "event": "SESSION_START", "data": {"session_id": "sess_1775553134660_f03064", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:12:14.761Z", "event": "AGENT_START", "data": {"session_id": "sess_1775553134660_f03064", "query": "Tìm giúp tôi chuyến bay từ Hà Nội đi Đà Nẵng", "model": "gpt-4o-mini"}}
+{"timestamp": "2026-04-07T16:12:17.081Z", "event": "LLM_METRIC", "data": {"step": 1, "model": "gpt-4o-mini", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "function_call_count": 0}}
+{"timestamp": "2026-04-07T16:12:17.183Z", "event": "AGENT_RESPONSE", "data": {"step": 1, "answer_preview": "Dạ, anh/chị cho em biết ngày bay cụ thể được không ạ? Để em tìm chuyến bay tốt nhất cho anh/chị nha!", "latency_ms": 2419}}
+{"timestamp": "2026-04-07T16:12:17.184Z", "event": "SESSION_END", "data": {"total_duration_ms": 2524, "total_queries": 1, "total_tokens": 0, "total_tool_calls": 0}}

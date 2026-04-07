@@ -1,0 +1,60 @@
+{
+  "session_id": "sess_1775552720502_110351",
+  "label": "agent",
+  "model": "gpt-4o-mini",
+  "start_time": 1775552720502,
+  "total_duration_ms": 2261,
+  "total_queries": 1,
+  "total_tokens": 0,
+  "total_tool_calls": 0,
+  "events": [
+    {
+      "timestamp": "2026-04-07T16:05:20.502Z",
+      "event": "SESSION_START",
+      "data": {
+        "session_id": "sess_1775552720502_110351",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:05:20.604Z",
+      "event": "AGENT_START",
+      "data": {
+        "session_id": "sess_1775552720502_110351",
+        "query": "Bạn tôi muốn đi Đà Nẵng, nhờ tôi hỏi giúp chuyến bay",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:05:22.660Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 1,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:05:22.762Z",
+      "event": "AGENT_RESPONSE",
+      "data": {
+        "step": 1,
+        "answer_preview": "Dạ, em chỉ tư vấn trực tiếp cho người đi thôi nha! Anh/chị nhắn bạn ấy tự chat với em để em tư vấn chính xác nhất hen!",
+        "latency_ms": 2156
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:05:22.763Z",
+      "event": "SESSION_END",
+      "data": {
+        "total_duration_ms": 2261,
+        "total_queries": 1,
+        "total_tokens": 0,
+        "total_tool_calls": 0
+      }
+    }
+  ]
+}

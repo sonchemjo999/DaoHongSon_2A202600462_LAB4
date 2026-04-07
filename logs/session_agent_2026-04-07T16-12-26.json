@@ -1,0 +1,96 @@
+{
+  "session_id": "sess_1775553146970_d9781e",
+  "label": "agent",
+  "model": "gpt-4o-mini",
+  "start_time": 1775553146970,
+  "total_duration_ms": 16542,
+  "total_queries": 1,
+  "total_tokens": 0,
+  "total_tool_calls": 2,
+  "events": [
+    {
+      "timestamp": "2026-04-07T16:12:26.970Z",
+      "event": "SESSION_START",
+      "data": {
+        "session_id": "sess_1775553146970_d9781e",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:12:27.071Z",
+      "event": "AGENT_START",
+      "data": {
+        "session_id": "sess_1775553146970_d9781e",
+        "query": "Tôi ở Hà Nội, muốn đi Phú Quốc 2 đêm, budget 5 triệu. Tư vấn giúp!",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:12:30.185Z",
+      "event": "TOOL_CALL",
+      "data": {
+        "step": 1,
+        "tool_name": "search_flights",
+        "tool_args": {
+          "origin": "Hà Nội",
+          "destination": "Phú Quốc"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:12:30.286Z",
+      "event": "TOOL_CALL",
+      "data": {
+        "step": 1,
+        "tool_name": "search_hotels",
+        "tool_args": {
+          "city": "Phú Quốc",
+          "max_price_per_night": 2500000
+        }
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:12:30.287Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 1,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:12:43.405Z",
+      "event": "LLM_METRIC",
+      "data": {
+        "step": 2,
+        "model": "gpt-4o-mini",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "function_call_count": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:12:43.508Z",
+      "event": "AGENT_RESPONSE",
+      "data": {
+        "step": 2,
+        "answer_preview": "Dạ, đây là gợi ý cho chuyến đi của anh/chị từ Hà Nội đến Phú Quốc trong 2 đêm nha:\n\n✈ Chuyến bay:\n1. **VietJet Air** | 10:00 → 12:15 | Giá: 1.350.000đ\n2. **VietJet Air** | 16:00 → 18:15 | Giá: 1.100.0",
+        "latency_ms": 16434
+      }
+    },
+    {
+      "timestamp": "2026-04-07T16:12:43.512Z",
+      "event": "SESSION_END",
+      "data": {
+        "total_duration_ms": 16542,
+        "total_queries": 1,
+        "total_tokens": 0,
+        "total_tool_calls": 2
+      }
+    }
+  ]
+}
