@@ -222,10 +222,16 @@ Mình có thể giúp tìm vé máy bay, khách sạn, và lên kế hoạch chi
 ```
 MSSV_Lab4/
 ├── system_prompt.txt    # System prompt với cấu trúc XML
-├── tools.py             # 3 custom tools + mock data
+├── tools.py             # 3 custom tools + mock data + cache system
 ├── agent.py             # LangGraph agent hoàn chỉnh
-├── test_results.md      # Kết quả 5 test cases (file này)
+├── logger.py            # SessionLogger — ghi logs theo session
+├── logs/                # Thư mục chứa logs (JSONL realtime + JSON tổng kết)
+│   ├── session_agent_*.jsonl   # Events realtime
+│   └── session_agent_*.json    # Tổng kết session
+├── test_results.md      # Kết quả 5 test cases
 ├── test_api.py          # Sanity check API
+├── requirements.txt     # Thư viện cần cài
+├── README.md            # Hướng dẫn cài đặt & chạy
 └── .env                 # API key (không nộp)
 ```
 
@@ -239,7 +245,7 @@ MSSV_Lab4/
 | Tool implementations đúng logic + xử lý lỗi | 25% | 3 tools với try/except, format giá, tra ngược chiều, lọc + sắp xếp, parse chuỗi |
 | System Prompt kiên cố (Test 4 + Test 5) | 20% | Rules hỏi lại khi thiếu info, constraints từ chối yêu cầu ngoài du lịch |
 | Multi-step tool chaining (Test 3) | 20% | Agent tự chuỗi: flights → hotels → budget → tổng hợp gợi ý |
-| Code sạch, type hints, logging | 10% | Type hints, logging emoji, format_price helper, code có comment |
+| Code sạch, type hints, logging | 10% | Type hints, SessionLogger (JSONL+JSON), response cache theo ngày, format_price helper |
 
 ---
 
@@ -303,7 +309,82 @@ pip install -r requirements.txt --user
 
 ---
 
-### Sửa đổi 4: Response Cache theo ngày đi — tránh trả nhầm giá
+### Sửa đổi 4: Thêm Logging System — Theo dõi session & debug
+
+**File:** `logger.py`
+
+**Vấn đề:** Không có cách nào theo dõi agent đang làm gì, tốn bao nhiêu tokens, latency bao lâu, hay gọi tool mấy lần. Khó debug khi agent trả lời sai.
+
+**Giải pháp: `SessionLogger` — ghi logs theo session**
+
+Mỗi phiên chat tạo 1 cặp file trong thư mục `logs/`:
+
+| File | Mục đích |
+|------|----------|
+| `session_agent_YYYY-MM-DDTHH-MM-SS.jsonl` | Events realtime — mỗi event 1 dòng, ghi ngay khi xảy ra |
+| `session_agent_YYYY-MM-DDTHH-MM-SS.json` | Tổng kết session — ghi khi user thoát (`quit`) |
+
+#### Các event được ghi:
+
+| Event | Thời điểm | Dữ liệu |
+|-------|-----------|----------|
+| `SESSION_START` | Mở app | `session_id`, `model` |
+| `AGENT_START` | User gửi query | `query`, `session_id` |
+| `TOOL_CALL` | Agent gọi tool | `tool_name`, `tool_args`, `step` |
+| `LLM_METRIC` | LLM trả response | `prompt_tokens`, `completion_tokens`, `total_tokens`, `function_call_count` |
+| `AGENT_RESPONSE` | Agent trả lời xong | `answer_preview` (200 ký tự đầu), `latency_ms` |
+| `SESSION_END` | User thoát | `total_duration_ms`, `total_queries`, `total_tokens`, `total_tool_calls` |
+
+#### Tích hợp vào `agent.py`:
+
+```python
+from logger import SessionLogger
+
+session_logger = SessionLogger(model="gpt-4o-mini")
+
+# Trong agent_node — log tool calls & LLM metrics
+if response.tool_calls:
+    for tc in response.tool_calls:
+        session_logger.log_tool_call(tc["name"], tc["args"], agent_step)
+session_logger.log_llm_metric(response, agent_step)
+
+# Trong chat loop — log query start & response
+query_start = session_logger.log_agent_start(user_input)
+# ... invoke graph ...
+session_logger.log_agent_response(final.content, query_start, agent_step)
+
+# Khi thoát
+session_logger.log_session_end()
+```
+
+#### Ví dụ file JSON tổng kết session:
+
+```json
+{
+  "session_id": "sess_1775554894368_ecb492",
+  "label": "agent",
+  "model": "gpt-4o-mini",
+  "total_duration_ms": 3565,
+  "total_queries": 1,
+  "total_tokens": 0,
+  "total_tool_calls": 0,
+  "events": [
+    {"event": "SESSION_START", ...},
+    {"event": "AGENT_START", "data": {"query": "Tìm chuyến bay..."}},
+    {"event": "LLM_METRIC", "data": {"total_tokens": 0, "function_call_count": 0}},
+    {"event": "AGENT_RESPONSE", "data": {"latency_ms": 3458}},
+    {"event": "SESSION_END", ...}
+  ]
+}
+```
+
+**Kết quả:** Mỗi phiên chat được ghi log đầy đủ, dễ debug và phân tích hiệu suất agent.
+
+---
+
+### Sửa đổi 5: Response Cache theo ngày đi — tránh trả nhầm giá
+
+**File:** `tools.py`
 
 **Vấn đề:**
 1. Agent không nhớ các lượt chat trước
@@ -368,7 +449,22 @@ def cache_get(key):
     return entry["data"]  # ⚡ phản hồi tức thì
 ```
 
-#### 4d. MemorySaver — Nhớ hội thoại
+#### 5d. Quản lý cache từ chat loop
+
+Trong `agent.py`, user có thể quản lý cache trực tiếp:
+- Gõ `cache` → xem thống kê cache (`get_cache_stats()`)
+- Gõ `clear` → xóa toàn bộ cache
+- Gõ `clear Đà Nẵng` → xóa entries chứa "Đà Nẵng"
+
+```python
+if user_input.lower() == "cache":
+    print(f"\n{get_cache_stats()}")
+if user_input.lower().startswith("clear"):
+    keyword = user_input[5:].strip()
+    print(f"\n{cache_clear(keyword)}")
+```
+
+#### 5e. MemorySaver — Nhớ hội thoại
 ```python
 memory = MemorySaver()
 graph = builder.compile(checkpointer=memory)
@@ -396,7 +492,7 @@ cache:
 
 ---
 
-### Sửa đổi 5: Cập nhật Persona — giọng miền Nam ngọt ngào
+### Sửa đổi 6: Cập nhật Persona — giọng miền Nam ngọt ngào
 
 **Thay đổi:** Sửa `<persona>` trong `system_prompt.txt` để agent nói chuyện như cô gái miền Nam.
 
